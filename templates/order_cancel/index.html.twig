@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur de Paiement - boutiquePurelife{% endblock %}
+
+{% block content %}
+
+    <h2> Erreur de Paiement </h2>
+    <p>
+    Bonjour <strong> {{ order.user.firstname}} {{order.user.lastname}}</strong>, <br><br/>
+    Il semblerait que votre paiement est échoué pour votre commande n°<strong>{{order.reference}}</strong>.<br/>
+    Une confirmation vient de vous être envoyée par email à l'adresse <strong>{{ order.user.email}}</strong>.
+    <hr>
+    Votre commande sera livrée par <strong> {{order.carrierName}}</strong> à l'adresse suivante : <br>
+    {{order.delivery|raw}}
+    </p>
+    <a href = "{{path('order')}}" class="btn btn-success" >Réessayer le paiement</a>
+ 
+
+
+{% endblock %}
